@@ -23,5 +23,5 @@ jobs:
         docker buildx build --tag hemanthad23/portfolio_testing --push .
 
     env:
-      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  # Set this secret in your repository settings
+      DOCKER_PASSWORD: ${{ secrets.auto_build_git_commit }}  # Set this secret in your repository settings
       DOCKER_USERNAME: hemanthad23  # Your Docker Hub username
