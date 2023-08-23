@@ -7,7 +7,8 @@ app = Flask(__name__)
 # Define a route and its associated function
 @app.route('/')
 def hello_world():
-    return render_template('index.html')
+    # return render_template('index.html')
+    return ("hello CI-CD working successfully")
 
 # Run the app if this script is executed
 if __name__ == '__main__':
