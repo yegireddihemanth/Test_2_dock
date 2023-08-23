@@ -3,8 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main  # Replace with your default branch name
-      
+      - main
 
 jobs:
   build-and-push:
@@ -23,5 +22,5 @@ jobs:
         docker buildx build --tag hemanthad23/portfolio_testing --push .
 
     env:
-      DOCKER_PASSWORD: ${{ secrets.auto_build_git_commit }}  # Set this secret in your repository settings
+      DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}  # Use the Docker Hub access token secret you created
       DOCKER_USERNAME: hemanthad23  # Your Docker Hub username
