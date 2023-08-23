@@ -14,17 +14,11 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Docker Login
-      run: docker login -u hemanthad23 -p "akonpopStar@143"
-
-    - name: Set up Docker Auth Config
-      run: echo '$DOCKER_AUTH_CONFIG' > /tmp/docker-auth.json
-      env:
-        DOCKER_AUTH_CONFIG: $(cat docker-auth.json)
+      run: docker login -u hemanthad23 -p "${{ secrets.DOCKER_PASSWORD }}"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v1
 
     - name: Build Docker image
       run: |
-        docker buildx create --use
-        docker buildx build --tag hemanthad23/portfolio_testing --push . --auth docker-auth-config=/tmp/docker-auth.json
+        docker buildx build --tag hemanthad23/portfolio_testing --push .
