@@ -1,4 +1,8 @@
 from flask import Flask, render_template, send_from_directory
+import os
+
+
+port=os.getenv('port')
 
 app = Flask(__name__)
 @app.route('/')
@@ -13,4 +17,4 @@ def resume():
 
 # Run the app if this script is executed
 if __name__ == '__main__':
-    app.run(debug=True, port=8006, host='0.0.0.0')
+    app.run(debug=True, port=port, host='0.0.0.0')
